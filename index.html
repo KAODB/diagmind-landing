@@ -248,6 +248,37 @@
   .pillar h4{font-family:"Space Grotesk",sans-serif;font-size:17px;margin:0 0 9px;font-weight:600;}
   .pillar p{font-size:13.5px;color:var(--muted);margin:0;line-height:1.65;}
 
+  /* ---- about (業務描述) ---- */
+  .pillars.cols-3{grid-template-columns:repeat(3,1fr);}
+  .pillar ul.plist{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+  .pillar ul.plist li{display:flex;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.65;}
+  .pillar ul.plist li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:8px;flex:0 0 auto;}
+
+  /* ---- team (專案團隊) ---- */
+  .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .member{background:var(--bg-1);border:1px solid var(--line);border-radius:var(--r);padding:28px;
+    transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;}
+  .member:hover{transform:translateY(-5px);border-color:rgba(201,160,99,.45);box-shadow:0 18px 40px rgba(0,0,0,.4);}
+  .member .m-top{display:flex;align-items:center;gap:16px;}
+  .member .avatar{width:58px;height:58px;border-radius:50%;flex:0 0 auto;background:var(--gold-soft);
+    border:1px solid rgba(201,160,99,.4);display:grid;place-items:center;
+    font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:19px;color:var(--gold);letter-spacing:.02em;}
+  .member h4{font-family:"Space Grotesk",sans-serif;font-size:19px;margin:0;font-weight:700;line-height:1.3;}
+  .member .m-role{color:var(--gold);font-family:"Space Mono",monospace;font-size:12.5px;letter-spacing:.05em;margin-top:5px;}
+  .member ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:9px;}
+  .member ul li{display:flex;gap:10px;font-size:14px;color:var(--muted);line-height:1.65;}
+  .member ul li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:8px;flex:0 0 auto;}
+  .m-links{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+  .plink{font-family:"Space Mono",monospace;font-size:12px;color:var(--gold);
+    border:1px solid rgba(201,160,99,.35);border-radius:999px;padding:7px 14px;transition:all .2s ease;}
+  .plink:hover{background:var(--gold-soft);border-color:var(--gold);}
+  .team-note{margin-top:18px;background:var(--bg-1);border:1px solid var(--line);border-radius:var(--r);
+    padding:22px 26px;display:flex;gap:16px;align-items:flex-start;}
+  .team-note .pico{width:38px;height:38px;border-radius:10px;background:var(--gold-soft);display:grid;place-items:center;flex:0 0 auto;}
+  .team-note .pico svg{width:19px;height:19px;color:var(--gold);}
+  .team-note h5{font-family:"Space Grotesk",sans-serif;font-size:15px;margin:0 0 5px;font-weight:600;}
+  .team-note p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.65;}
+
   /* ---- vision ---- */
   .vision{text-align:center;}
   .vision .wrap{max-width:900px;}
@@ -283,6 +314,8 @@
     .pipe{grid-template-columns:1fr 1fr;}
     .pstep:not(:last-child)::after{display:none;}
     .pillars{grid-template-columns:1fr 1fr;}
+    .pillars.cols-3{grid-template-columns:1fr 1fr;}
+    .team-grid{grid-template-columns:1fr;}
     .stats{grid-template-columns:1fr 1fr;}
     .foot-grid{grid-template-columns:1fr 1fr;}
     .spotlight .s-head{flex-direction:column;align-items:flex-start;}
@@ -293,6 +326,8 @@
     .feat{grid-template-columns:1fr;}
     .stats{grid-template-columns:1fr 1fr;}
     .pillars{grid-template-columns:1fr;}
+    .pillars.cols-3{grid-template-columns:1fr;}
+    .member{padding:24px;}
     .cta-band{padding:44px 24px;}
     .spotlight{padding:24px;}
     .spotlight .s-pains,.spotlight .s-feats{grid-template-columns:1fr;}
@@ -315,8 +350,10 @@
       <span class="mark" aria-hidden="true"></span> DIAGMIND
     </a>
     <nav class="nav-links" aria-label="主導覽">
+      <a href="#about">關於</a>
       <a href="#products">產品</a>
       <a href="#tech">技術</a>
+      <a href="#team">團隊</a>
       <a href="#contact">聯絡</a>
     </nav>
     <div class="nav-cta">
@@ -364,6 +401,46 @@
       <div class="stat"><div class="num"><span data-count="5">0</span></div><div class="lbl">大 AI 模組</div></div>
       <div class="stat"><div class="num"><span data-count="5">0</span></div><div class="lbl">步驟 QRH 引導式推理</div></div>
       <div class="stat"><div class="num">雙語</div><div class="lbl">中英皆可 · 融入台灣本土</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ ABOUT / 業務描述 ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">About Diagmind</span>
+      <h2>我們在做什麼，<br>為誰而做。</h2>
+      <p>Diagmind 是立足台灣的<strong style="color:var(--text)">醫學教育 AI 公司</strong>。我們以自研的「臨床推理引擎」為核心，為醫學院與教學醫院打造會引導思考的教學工具——從虛擬病人教案生成、虛擬醫學影像庫，到整合教學平台與值班輔助。</p>
+    </div>
+    <div class="pillars cols-3" style="margin-top:0;">
+      <div class="pillar reveal d1">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h4>解決的問題</h4>
+        <ul class="plist">
+          <li>臨床教學人力不足——資深醫師忙於臨床，備課與帶教的時間被嚴重壓縮</li>
+          <li>案例資源不均——中小型與偏鄉醫院缺乏足夠的教學案例與影像素材</li>
+          <li>推理訓練斷層——傳統醫學教育偏重記憶背誦，臨床推理難以系統化訓練</li>
+        </ul>
+      </div>
+      <div class="pillar reveal d2">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4>目標客群</h4>
+        <ul class="plist">
+          <li>機構端（B2B）——醫學院、教學醫院，與 PGY／住院醫師訓練計畫</li>
+          <li>學生端（B2C）——臨床實習與自我複習中的醫學生</li>
+        </ul>
+      </div>
+      <div class="pillar reveal d3">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 7l-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg></div>
+        <h4>產業背景</h4>
+        <ul class="plist">
+          <li>台灣醫學教育對臨床教學品質的要求持續提高，教學量能卻受限於醫師人力與工時</li>
+          <li>生成式 AI 大幅降低教材製作成本，但醫學內容必須有依據——Diagmind 以「知識檢索＋醫師把關」確保內容有憑有據</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -617,6 +694,96 @@
       <div class="pillar reveal d4">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div>
         <h4>一鍵成課</h4><p>教案可匯出 Word/PDF、上 LMS、進教案庫，直接接上教學流程。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ TEAM / 專案團隊 ============ -->
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Team</span>
+      <h2>臨床 × AI 的<span class="g">創始團隊</span>。</h2>
+      <p>Diagmind 由臨床醫師創辦、與 AI 研究者共同打造——讓每一個產品決策，同時站得住臨床與技術。</p>
+    </div>
+    <div class="team-grid">
+      <div class="member reveal d1">
+        <div class="m-top">
+          <div class="avatar" aria-hidden="true">高</div>
+          <div>
+            <h4>高瑞璋 Jui-Chang Kao, MD</h4>
+            <div class="m-role">創辦人 · CEO</div>
+          </div>
+        </div>
+        <ul>
+          <li>高雄長庚紀念醫院 不分科住院醫師</li>
+          <li>主導公司產品方向與 AI 工程——臨床推理引擎、訓練資料管線與評測</li>
+          <li>建立並統籌 30+ 位臨床醫師的內容審核與標註網絡</li>
+        </ul>
+        <div class="m-links">
+          <a class="plink" href="https://orcid.org/0009-0009-9760-8218" target="_blank" rel="noopener">ORCID ↗</a>
+          <!-- TODO(Ivan)：補上 LinkedIn 個人檔案連結後取消註解
+          <a class="plink" href="https://www.linkedin.com/in/____" target="_blank" rel="noopener">LinkedIn ↗</a>
+          -->
+        </div>
+      </div>
+      <div class="member reveal d2">
+        <div class="m-top">
+          <div class="avatar" aria-hidden="true">許</div>
+          <div>
+            <h4>許躍薾 Yue-Er Hsu</h4>
+            <div class="m-role">技術長 · CTO</div>
+          </div>
+        </div>
+        <ul>
+          <li>負責 AI 模型與平台技術架構</li>
+          <li>中央研究院 資訊科學研究所 研究助理</li>
+          <li>國立臺灣大學 人工智慧研究所（碩士）</li>
+        </ul>
+        <div class="m-links">
+          <a class="plink" href="https://orcid.org/0009-0009-1178-158X" target="_blank" rel="noopener">ORCID ↗</a>
+          <!-- TODO(Ivan)：補上 LinkedIn 個人檔案連結後取消註解
+          <a class="plink" href="https://www.linkedin.com/in/____" target="_blank" rel="noopener">LinkedIn ↗</a>
+          -->
+        </div>
+      </div>
+      <div class="member reveal d3">
+        <div class="m-top">
+          <div class="avatar" aria-hidden="true">李</div>
+          <div>
+            <h4>李佳儒</h4>
+            <div class="m-role">營運長 · COO</div>
+          </div>
+        </div>
+        <ul>
+          <li>負責營運、機構合作與臨床端導入</li>
+          <li>長庚紀念醫院（CGMH）</li>
+        </ul>
+        <!-- TODO(Ivan)：補上 LinkedIn / 職務經歷細節 -->
+      </div>
+      <div class="member reveal d4">
+        <div class="m-top">
+          <div class="avatar" aria-hidden="true">尤</div>
+          <div>
+            <h4>尤銓譽</h4>
+            <div class="m-role">資訊長 · CIO</div>
+          </div>
+        </div>
+        <ul>
+          <li>負責資訊系統與資料架構</li>
+          <li>國立陽明交通大學（NYCU）腦造影研究</li>
+        </ul>
+        <!-- TODO(Ivan)：補上 LinkedIn / 職務經歷細節 -->
+      </div>
+    </div>
+    <div class="team-note reveal">
+      <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
+      <div>
+        <h5>顧問與醫師網絡</h5>
+        <p>技術顧問 王啟綸（考古豹創辦人）；30+ 位來自各專科的臨床醫師參與內容審核與案例標註，確保教學內容貼合台灣臨床現場。</p>
       </div>
     </div>
   </div>
