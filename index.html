@@ -269,12 +269,7 @@
   .member ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:9px;}
   .member ul li{display:flex;gap:10px;font-size:14px;color:var(--muted);line-height:1.65;}
   .member ul li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:8px;flex:0 0 auto;}
-  .team-note{margin-top:18px;background:var(--bg-1);border:1px solid var(--line);border-radius:var(--r);
-    padding:22px 26px;display:flex;gap:16px;align-items:flex-start;}
-  .team-note .pico{width:38px;height:38px;border-radius:10px;background:var(--gold-soft);display:grid;place-items:center;flex:0 0 auto;}
-  .team-note .pico svg{width:19px;height:19px;color:var(--gold);}
-  .team-note h5{font-family:"Space Grotesk",sans-serif;font-size:15px;margin:0 0 5px;font-weight:600;}
-  .team-note p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.65;}
+  .member .avatar svg{width:27px;height:27px;color:var(--gold);}
 
   /* ---- vision ---- */
   .vision{text-align:center;}
@@ -496,7 +491,7 @@
     <!-- Panel 1: 虛擬醫學影像庫 -->
     <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0" hidden>
       <div class="p-text">
-        <span class="p-status"><span class="d" aria-hidden="true"></span> 虛擬影像 · CXR</span>
+        <span class="p-status soon"><span class="d" aria-hidden="true"></span> Beta · 虛擬影像 CXR</span>
         <h3>虛擬醫學影像庫</h3>
         <div class="p-for">給影像案例不足的醫院 · 內部教學</div>
         <p class="p-desc">AI 生成的<strong style="color:#fff">虛擬醫學影像</strong>（目前以胸部 X 光 CXR 為主，影像類型持續擴充）。讓真實案例不足的醫院，也能補足內部教學所需的影像素材，做臨床判讀訓練。</p>
@@ -524,7 +519,7 @@
     <!-- Panel 2: 臨床推理模型 -->
     <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
       <div class="p-text">
-        <span class="p-status"><span class="d" aria-hidden="true"></span> 核心引擎 · Core</span>
+        <span class="p-status live"><span class="d" aria-hidden="true"></span> 已上線 · 核心引擎</span>
         <h3>臨床推理模型</h3>
         <div class="p-for">驅動全平台的「腦」</div>
         <p class="p-desc">把資深臨床醫師的推理過程，變成<strong style="color:#fff">可生成、可複製</strong>的能力——從症狀出發，逐步帶到鑑別診斷、檢查與處置（QRH 引導式）。所有產品共用這一套推理核心。</p>
@@ -769,12 +764,17 @@
           <li>國立臺灣大學 法律學系</li>
         </ul>
       </div>
-    </div>
-    <div class="team-note reveal">
-      <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div>
-        <h5>30+ 位合作醫師</h5>
-        <p>來自各醫學中心的臨床醫師，參與內容審核與案例標註，確保內容的臨床真實性與技術落地性。</p>
+      <div class="member reveal d2">
+        <div class="m-top">
+          <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div>
+            <h4>30+ 位合作醫師</h4>
+            <div class="m-role">各醫學中心 · 臨床醫師</div>
+          </div>
+        </div>
+        <ul>
+          <li>參與內容審核與案例標註，確保內容的臨床真實性與技術落地性</li>
+        </ul>
       </div>
     </div>
   </div>
