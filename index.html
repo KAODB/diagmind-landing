@@ -8,6 +8,9 @@
 <meta property="og:title" content="Diagmind — AI Native 醫學教育平台" />
 <meta property="og:description" content="為醫學教育打造的 AI：虛擬病人教案生成與 QRH 引導式臨床推理，教案生成平台已上線。" />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://welcome.diagmindtw.com/img/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -173,6 +176,14 @@
   .feat li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:#ded4c4;}
   .feat li svg{width:19px;height:19px;color:var(--gold);flex:0 0 auto;margin-top:2px;}
   .panel .p-cta{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;}
+
+  /* real product screenshots */
+  .shots{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;}
+  .shots a{display:block;background:var(--bg-1);border:1px solid var(--line);border-radius:14px;padding:12px;transition:border-color .2s ease;}
+  .shots a:hover{border-color:var(--gold);}
+  .shots img{width:100%;border-radius:8px;display:block;}
+  .shots span{display:block;margin-top:10px;font-size:13px;color:var(--muted);font-family:"Space Mono",monospace;letter-spacing:.02em;}
+  @media (max-width:760px){.shots{grid-template-columns:1fr;}}
 
   /* B2C spotlight (links to diagmindtw.com) */
   .spotlight{margin-top:30px;display:block;
@@ -478,20 +489,23 @@
             <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
-      <div class="visual" aria-hidden="true">
-        <div class="v-bar"><i></i><i></i><i></i><span class="v-label">LESSON GENERATOR</span></div>
-        <div class="v-row" data-en="<span class='k'>Topic</span> Differential of chest pain"><span class="k">主題</span> 胸痛的鑑別診斷</div>
-        <div class="v-row" data-en="<span class='k'>Specialty</span> Internal Med · Cardiology"><span class="k">科別</span> 內科 · 心臟</div>
-        <div class="v-row" data-en="<span class='k'>Audience</span> Clerk &nbsp;<span class='k' style='margin-left:auto'>Difficulty</span> Medium"><span class="k">對象</span> Clerk &nbsp;<span class="k" style="margin-left:auto">難度</span> 中</div>
-        <div style="margin:4px 0 2px;">
-          <span class="v-chip" data-en="▶ Generating">▶ 生成中</span><span class="v-chip" data-en="Retrieval">知識檢索</span><span class="v-chip">QRH</span>
-        </div>
-        <div class="v-gen" data-en="<b>Q2 · Which test would you order first?</b><br><span class='v-think'>&lt;think&gt;</span> Chest pain + cold sweat → rule out lethal causes first; ACS is the highest risk,<br>so start with a 12-lead ECG and cardiac enzymes… <span class='v-think'>&lt;/think&gt;</span><br><span style='color:#fff'>Model answer:</span>12-lead ECG + Troponin">
-          <b>Q2 · 你會先安排哪項檢查？</b><br>
-          <span class="v-think">&lt;think&gt;</span> 胸痛 + 冒冷汗 → 先排除致命病因，ACS 風險最高，<br>故先做 12 導程 ECG 與心肌酵素… <span class="v-think">&lt;/think&gt;</span><br>
-          <span style="color:#fff">標準答案：</span>12-lead ECG + Troponin
-        </div>
+      <div class="visual" style="padding:14px;min-height:0;">
+        <div class="v-bar"><i></i><i></i><i></i><span class="v-label">OSCETEACHER.DIAGMINDTW.COM</span></div>
+        <a href="https://osceteacher.diagmindtw.com/?demo=1" target="_blank" rel="noopener">
+          <img src="img/product-lesson.png" alt="Diagmind 教案生成平台實際畫面：AI 生成的急性胸痛 CBL 教案" style="width:100%;border-radius:10px;border:1px solid var(--line);display:block;" loading="lazy" />
+        </a>
       </div>
+    </div>
+
+    <div class="shots reveal">
+      <a href="https://osceteacher.diagmindtw.com/?demo=1" target="_blank" rel="noopener">
+        <img src="img/product-create.png" alt="教案生成表單：選擇 CBL/PBL/OSCE 模式與主題、科別、難度" loading="lazy" />
+        <span data-en="Create a lesson — pick mode, topic, audience, difficulty">建立教案——選模式、主題、對象、難度</span>
+      </a>
+      <a href="https://osceteacher.diagmindtw.com/?demo=1" target="_blank" rel="noopener">
+        <img src="img/product-library.png" alt="教案庫儀表板：產出趨勢、難度分布與近期教案" loading="lazy" />
+        <span data-en="Lesson library — output trends and recent lessons">教案庫——產出趨勢與近期教案</span>
+      </a>
     </div>
 
     <!-- Diagmind B2C 入口（diagmindtw.com） -->
@@ -675,7 +689,7 @@
     <div class="hero-cta" style="justify-content:center;margin-top:38px;">
       <a class="btn btn-primary" href="https://osceteacher.diagmindtw.com/?demo=1" target="_blank" rel="noopener"><span data-en="Try the lesson platform now">立即試用教案生成平台</span>
         <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn-ghost" href="mailto:diagmindtw@gmail.com"><span data-en="Email us">聯絡我們</span>
+      <a class="btn btn-ghost" href="mailto:info@diagmindtw.com"><span data-en="Email us">聯絡我們</span>
         <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/company/diagmind/" target="_blank" rel="noopener"><span data-en="LinkedIn page">LinkedIn 公司頁</span>
         <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
@@ -688,8 +702,11 @@
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
-    <span class="copyright" data-en="© 2026 Diagmind · Medical Education AI · Taiwan · <a href='https://www.linkedin.com/company/diagmind/' target='_blank' rel='noopener' style='color:var(--muted);text-decoration:underline;'>LinkedIn</a>">© 2026 Diagmind · 醫學教育 AI · Taiwan ·
-      <a href="https://www.linkedin.com/company/diagmind/" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline;">LinkedIn</a></span>
+    <span class="copyright" data-en="© 2026 醫識通股份有限公司 (Diagmind) · Tax ID 62243811 · Kaohsiung, Taiwan · Medical Education AI<br><a href='https://info.technews.tw/company/62243811-%E9%86%AB%E8%AD%98%E9%80%9A%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8' target='_blank' rel='noopener' style='color:var(--muted);text-decoration:underline;'>Business registry</a> · <a href='https://www.linkedin.com/company/diagmind/' target='_blank' rel='noopener' style='color:var(--muted);text-decoration:underline;'>LinkedIn</a> · <a href='privacy.html' style='color:var(--muted);text-decoration:underline;'>Privacy Policy</a> · <a href='mailto:info@diagmindtw.com' style='color:var(--muted);text-decoration:underline;'>info@diagmindtw.com</a>">© 2026 醫識通股份有限公司（Diagmind）· 統一編號 62243811 · 高雄市 · 醫學教育 AI<br>
+      <a href="https://info.technews.tw/company/62243811-%E9%86%AB%E8%AD%98%E9%80%9A%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline;">公司登記</a> ·
+      <a href="https://www.linkedin.com/company/diagmind/" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline;">LinkedIn</a> ·
+      <a href="privacy.html" style="color:var(--muted);text-decoration:underline;">隱私權政策</a> ·
+      <a href="mailto:info@diagmindtw.com" style="color:var(--muted);text-decoration:underline;">info@diagmindtw.com</a></span>
   </div>
 </footer>
 
