@@ -4,10 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Diagmind — AI Native 醫學教育平台</title>
-<meta name="description" content="Diagmind 醫學教育 AI 平台——虛擬醫學影像庫、虛擬病人教案生成、臨床推理模型與整合教學平台，全部建立在台灣本土醫學知識之上。" />
+<meta name="description" content="Diagmind 醫學教育 AI——虛擬病人教案生成與 QRH 引導式臨床推理，建立在台灣本土醫學知識之上；教案生成平台已上線。" />
 <meta property="og:title" content="Diagmind — AI Native 醫學教育平台" />
-<meta property="og:description" content="為醫學教育打造的 AI 平台：影像資料庫、虛擬病人教案、臨床推理模型、整合教學平台。" />
+<meta property="og:description" content="為醫學教育打造的 AI：虛擬病人教案生成與 QRH 引導式臨床推理，教案生成平台已上線。" />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://welcome.diagmindtw.com/img/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -87,6 +90,12 @@
   .nav-toggle{display:none;background:none;border:1px solid var(--line-2);border-radius:9px;
     width:42px;height:42px;cursor:pointer;color:var(--text);align-items:center;justify-content:center;}
   .nav-toggle svg{width:20px;height:20px;}
+  .lang-toggle{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+    font-family:"Space Mono",monospace;font-size:13px;font-weight:700;letter-spacing:.06em;
+    min-width:46px;height:42px;padding:0 12px;border-radius:999px;
+    background:transparent;color:var(--muted);border:1px solid var(--line-2);
+    transition:color .2s ease,border-color .2s ease,background .2s ease;}
+  .lang-toggle:hover{color:var(--gold);border-color:var(--gold);}
 
   /* ---- hero ---- */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;
@@ -168,7 +177,15 @@
   .feat li svg{width:19px;height:19px;color:var(--gold);flex:0 0 auto;margin-top:2px;}
   .panel .p-cta{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;}
 
-  /* student-platform spotlight (links to school.diagmindtw.com) */
+  /* real product screenshots */
+  .shots{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;}
+  .shots a{display:block;background:var(--bg-1);border:1px solid var(--line);border-radius:14px;padding:12px;transition:border-color .2s ease;}
+  .shots a:hover{border-color:var(--gold);}
+  .shots img{width:100%;border-radius:8px;display:block;}
+  .shots span{display:block;margin-top:10px;font-size:13px;color:var(--muted);font-family:"Space Mono",monospace;letter-spacing:.02em;}
+  @media (max-width:760px){.shots{grid-template-columns:1fr;}}
+
+  /* B2C spotlight (links to diagmindtw.com) */
   .spotlight{margin-top:30px;display:block;
     background:linear-gradient(160deg,var(--bg-2),#0b0805);border:1px solid var(--line);border-radius:18px;
     padding:28px 30px;position:relative;overflow:hidden;}
@@ -269,6 +286,10 @@
   .member ul{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:9px;}
   .member ul li{display:flex;gap:10px;font-size:14px;color:var(--muted);line-height:1.65;}
   .member ul li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:8px;flex:0 0 auto;}
+  .m-links{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+  .plink{font-family:"Space Mono",monospace;font-size:12px;color:var(--gold);
+    border:1px solid rgba(201,160,99,.35);border-radius:999px;padding:7px 14px;transition:all .2s ease;}
+  .plink:hover{background:var(--gold-soft);border-color:var(--gold);}
   .member .avatar svg{width:27px;height:27px;color:var(--gold);}
 
   /* ---- vision ---- */
@@ -342,14 +363,15 @@
       <span class="mark" aria-hidden="true"></span> DIAGMIND
     </a>
     <nav class="nav-links" aria-label="主導覽">
-      <a href="#about">關於</a>
-      <a href="#products">產品</a>
-      <a href="#tech">技術</a>
-      <a href="#team">團隊</a>
-      <a href="#contact">聯絡</a>
+      <a href="#about" data-en="About">關於</a>
+      <a href="#products" data-en="Products">產品</a>
+      <a href="#tech" data-en="Technology">技術</a>
+      <a href="#team" data-en="Team">團隊</a>
+      <a href="#contact" data-en="Contact">聯絡</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="mailto:diagmindtw@gmail.com?subject=Diagmind%20Demo%20%E9%A0%90%E7%B4%84%E8%AB%AE%E8%A9%A2">預約 Demo
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch to English / 切換語言">EN</button>
+      <a class="btn btn-primary" href="https://osceteacher.diagmindtw.com/?demo=1" target="_blank" rel="noopener"><span data-en="Try it now">立即試用</span>
         <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
@@ -368,16 +390,19 @@
   <div class="hero-blob" aria-hidden="true"></div>
   <div class="wrap">
     <span class="eyebrow">AI-Native Medical Education Platform · Taiwan</span>
-    <h1>為醫學教育而生的<br><span class="g">AI 原生</span>平台。</h1>
-    <p class="lead">從虛擬醫學影像庫、虛擬病人教案生成，到臨床推理模型與整合教學平台——Diagmind 以台灣本土醫學知識為底，把醫學教育的每一個環節接上 AI。</p>
+    <h1 data-en="The <span class='g'>AI-native</span> platform<br>built for medical education.">為醫學教育而生的<br><span class="g">AI 原生</span>平台。</h1>
+    <p class="lead" data-en="Diagmind builds virtual-patient lesson generation and QRH-guided clinical reasoning on top of Taiwan's local medical knowledge — one-click lesson prep for faculty, step-by-step reasoning for students.">Diagmind 以台灣本土醫學知識為底，打造虛擬病人教案生成與 QRH 引導式臨床推理——老師一鍵備課，學生一步步學會臨床思考。</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#products">探索產品與技術架構
+      <a class="btn btn-primary" href="https://osceteacher.diagmindtw.com/?demo=1" target="_blank" rel="noopener"><span data-en="Try the lesson platform now">立即試用教案生成平台</span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#products"><span data-en="See the products">看產品介紹</span>
         <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
     <div class="hero-ticker">
       <span class="dot" aria-hidden="true"></span>
-      虛擬醫學影像庫 &nbsp;·&nbsp; 虛擬病人教案 &nbsp;·&nbsp; 臨床推理模型 &nbsp;·&nbsp; 整合教學平台 &nbsp;·&nbsp; DutyAce 值班助手
+      <span data-en="Virtual-patient lesson generation &nbsp;·&nbsp; QRH guided reasoning &nbsp;·&nbsp; 30+ physicians reviewing &nbsp;·&nbsp; Bilingual 中/EN">虛擬病人教案生成 &nbsp;·&nbsp; QRH 引導式推理 &nbsp;·&nbsp; 30+ 醫師把關 &nbsp;·&nbsp; 中英雙語</span>
     </div>
   </div>
   <div class="scrollcue" aria-hidden="true">SCROLL<span class="bar"></span></div>
@@ -389,10 +414,10 @@
 <section id="stats" style="padding:64px 0;">
   <div class="wrap">
     <div class="stats reveal">
-      <div class="stat"><div class="num"><span data-count="1">0</span></div><div class="lbl">套臨床推理模型，驅動全平台</div></div>
-      <div class="stat"><div class="num"><span data-count="5">0</span></div><div class="lbl">大 AI 模組</div></div>
-      <div class="stat"><div class="num"><span data-count="5">0</span></div><div class="lbl">步驟 QRH 引導式推理</div></div>
-      <div class="stat"><div class="num">雙語</div><div class="lbl">中英皆可 · 融入台灣本土</div></div>
+      <div class="stat"><div class="num"><span data-count="1">0</span></div><div class="lbl" data-en="clinical reasoning model powering the whole platform">套臨床推理模型，驅動全平台</div></div>
+      <div class="stat"><div class="num"><span data-count="30">0</span><span class="u">+</span></div><div class="lbl" data-en="collaborating physicians reviewing content">位合作醫師參與把關</div></div>
+      <div class="stat"><div class="num"><span data-count="5">0</span></div><div class="lbl" data-en="steps · QRH guided reasoning">步驟 QRH 引導式推理</div></div>
+      <div class="stat"><div class="num" data-en="Bilingual">雙語</div><div class="lbl" data-en="Chinese &amp; English · localized for Taiwan">中英皆可 · 融入台灣本土</div></div>
     </div>
   </div>
 </section>
@@ -404,33 +429,33 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">About Diagmind</span>
-      <h2>我們在做什麼，<br>為誰而做。</h2>
-      <p>Diagmind 是立足台灣的<strong style="color:var(--text)">醫學教育 AI 公司</strong>。我們以自研的「臨床推理引擎」為核心，為醫學院與教學醫院打造會引導思考的教學工具——從虛擬病人教案生成、虛擬醫學影像庫，到整合教學平台與值班輔助。</p>
+      <h2 data-en="What we build,<br>and who we build it for.">我們在做什麼，<br>為誰而做。</h2>
+      <p data-en="Diagmind is a Taiwan-based <strong style='color:var(--text)'>medical-education AI company</strong>. Built around our in-house clinical reasoning engine, we create teaching tools that guide thinking for medical schools and teaching hospitals — our core product is the virtual-patient lesson-generation platform, live today.">Diagmind 是立足台灣的<strong style="color:var(--text)">醫學教育 AI 公司</strong>。我們以自研的「臨床推理引擎」為核心，為醫學院與教學醫院打造會引導思考的教學工具——核心產品「虛擬病人教案生成平台」已上線使用。</p>
     </div>
     <div class="pillars cols-3" style="margin-top:0;">
       <div class="pillar reveal d1">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-        <h4>解決的問題</h4>
+        <h4 data-en="The problems we solve">解決的問題</h4>
         <ul class="plist">
-          <li>臨床教學人力不足——資深醫師忙於臨床，備課與帶教的時間被嚴重壓縮</li>
-          <li>案例資源不均——中小型與偏鄉醫院缺乏足夠的教學案例與影像素材</li>
-          <li>推理訓練斷層——傳統醫學教育偏重記憶背誦，臨床推理難以系統化訓練</li>
+          <li data-en="A shortage of clinical teaching capacity — senior physicians are busy with patient care, leaving little time to prepare lessons and mentor.">臨床教學人力不足——資深醫師忙於臨床，備課與帶教的時間被嚴重壓縮</li>
+          <li data-en="Uneven case resources — smaller and rural hospitals lack enough teaching cases and imaging material.">案例資源不均——中小型與偏鄉醫院缺乏足夠的教學案例與影像素材</li>
+          <li data-en="A gap in reasoning training — traditional medical education leans on memorization, making clinical reasoning hard to train systematically.">推理訓練斷層——傳統醫學教育偏重記憶背誦，臨床推理難以系統化訓練</li>
         </ul>
       </div>
       <div class="pillar reveal d2">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h4>目標客群</h4>
+        <h4 data-en="Who we serve">目標客群</h4>
         <ul class="plist">
-          <li>機構端（B2B）——醫學院、教學醫院，與 PGY／住院醫師訓練計畫</li>
-          <li>學生端（B2C）——臨床實習與自我複習中的醫學生</li>
+          <li data-en="Institutions (B2B) — medical schools, teaching hospitals, and PGY / residency training programs.">機構端（B2B）——醫學院、教學醫院，與 PGY／住院醫師訓練計畫</li>
+          <li data-en="Students (B2C) — medical students in clinical clerkships and self-review.">學生端（B2C）——臨床實習與自我複習中的醫學生</li>
         </ul>
       </div>
       <div class="pillar reveal d3">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 7l-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg></div>
-        <h4>產業背景</h4>
+        <h4 data-en="Industry context">產業背景</h4>
         <ul class="plist">
-          <li>台灣醫學教育對臨床教學品質的要求持續提高，教學量能卻受限於醫師人力與工時</li>
-          <li>生成式 AI 大幅降低教材製作成本，但醫學內容必須有依據——Diagmind 以「知識檢索＋醫師把關」確保內容有憑有據</li>
+          <li data-en="Taiwan keeps raising the bar for clinical teaching quality, yet teaching capacity is limited by physician headcount and working hours.">台灣醫學教育對臨床教學品質的要求持續提高，教學量能卻受限於醫師人力與工時</li>
+          <li data-en="Generative AI sharply lowers the cost of producing teaching material, but medical content must be grounded — Diagmind ensures it with knowledge retrieval plus physician review.">生成式 AI 大幅降低教材製作成本，但醫學內容必須有依據——Diagmind 以「知識檢索＋醫師把關」確保內容有憑有據</li>
         </ul>
       </div>
     </div>
@@ -442,199 +467,59 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Products</span>
-      <h2>五大 AI 模組，<br>一套臨床推理核心。</h2>
-      <p>從影像、教案、推理模型到整合平台——同一套臨床推理核心，串起醫學教育的每一個環節。</p>
-    </div>
-
-    <div class="tabs reveal" role="tablist" aria-label="產品線">
-      <button class="tab" role="tab" aria-selected="true"  id="tab-0" aria-controls="panel-0"><span class="tnum">01</span> 虛擬病人教案生成</button>
-      <button class="tab" role="tab" aria-selected="false" id="tab-1" aria-controls="panel-1"><span class="tnum">02</span> 虛擬醫學影像庫</button>
-      <button class="tab" role="tab" aria-selected="false" id="tab-2" aria-controls="panel-2"><span class="tnum">03</span> 臨床推理模型</button>
-      <button class="tab" role="tab" aria-selected="false" id="tab-3" aria-controls="panel-3"><span class="tnum">04</span> 整合教學平台</button>
-      <button class="tab" role="tab" aria-selected="false" id="tab-4" aria-controls="panel-4"><span class="tnum">05</span> DutyAce 值班助手</button>
+      <h2 data-en="The lesson platform is <span class='g'>live</span> —<br>use it today.">教案生成平台<span class="g">已上線</span>，<br>現在就能使用。</h2>
+      <p data-en="One clinical reasoning core. Try the lesson platform directly, or head to diagmindtw.com for the B2C service.">同一套臨床推理核心——教案生成平台可直接試用，B2C 服務請至 diagmindtw.com。</p>
     </div>
 
     <!-- Panel 0: 虛擬病人教案生成 -->
-    <div class="panel active" role="tabpanel" id="panel-0" aria-labelledby="tab-0" tabindex="0">
+    <div class="panel active">
       <div class="p-text">
-        <span class="p-status live"><span class="d" aria-hidden="true"></span> 上線中 · B2B</span>
-        <h3>虛擬病人教案生成</h3>
-        <div class="p-for">給醫學院老師 · 教學醫院 · 健康台灣深耕計畫</div>
-        <p class="p-desc">老師只要輸入「主題、科別、對象年級、難度」，系統就一鍵生成完整的<strong style="color:#fff">虛擬病人教案</strong>：病例、引導式提問、推理示範與標準答案，備課一次到位。</p>
+        <span class="p-status live"><span class="d" aria-hidden="true"></span> <span data-en="Live · osceteacher.diagmindtw.com">上線中 · osceteacher.diagmindtw.com</span></span>
+        <h3 data-en="Virtual-Patient Lesson Generation">虛擬病人教案生成</h3>
+        <div class="p-for" data-en="For medical-school faculty · teaching hospitals · Healthy Taiwan programs">給醫學院老師 · 教學醫院 · 健康台灣深耕計畫</div>
+        <p class="p-desc" data-en="Faculty just enter the topic, specialty, audience level, and difficulty, and the system generates a complete <strong style='color:#fff'>virtual-patient lesson</strong> in one click: the case, guided questions, reasoning demonstrations, and model answers — lesson prep done in one pass. Click &quot;Try it now&quot; and you are signed in automatically with a demo account — no registration needed.">老師只要輸入「主題、科別、對象年級、難度」，系統就一鍵生成完整的<strong style="color:#fff">虛擬病人教案</strong>：病例、引導式提問、推理示範與標準答案，備課一次到位。點「立即試用」會自動以 demo 帳號登入，無需註冊。</p>
         <ul class="feat">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 一鍵生成完整虛擬病人教案</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 5–7 個引導式提問</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 推理示範 + 鑑別診斷 + 標準答案</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 教案庫 · 一鍵匯出 Word/PDF</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> <span data-en="One-click, complete virtual-patient lessons">一鍵生成完整虛擬病人教案</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> <span data-en="5–7 guided questions">5–7 個引導式提問</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> <span data-en="Reasoning demos + differentials + model answers">推理示範 + 鑑別診斷 + 標準答案</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> <span data-en="Lesson library · one-click Word/PDF export">教案庫 · 一鍵匯出 Word/PDF</span></li>
         </ul>
         <div class="p-cta">
-          <a class="btn btn-primary" href="mailto:diagmindtw@gmail.com?subject=Diagmind%20Demo%20%E9%A0%90%E7%B4%84%E8%AB%AE%E8%A9%A2">預約 Demo
+          <a class="btn btn-primary" href="https://osceteacher.diagmindtw.com/?demo=1" target="_blank" rel="noopener"><span data-en="Try it now">立即試用</span>
             <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
-      <div class="visual" aria-hidden="true">
-        <div class="v-bar"><i></i><i></i><i></i><span class="v-label">LESSON GENERATOR</span></div>
-        <div class="v-row"><span class="k">主題</span> 胸痛的鑑別診斷</div>
-        <div class="v-row"><span class="k">科別</span> 內科 · 心臟</div>
-        <div class="v-row"><span class="k">對象</span> Clerk &nbsp;<span class="k" style="margin-left:auto">難度</span> 中</div>
-        <div style="margin:4px 0 2px;">
-          <span class="v-chip">▶ 生成中</span><span class="v-chip">知識檢索</span><span class="v-chip">QRH</span>
-        </div>
-        <div class="v-gen">
-          <b>Q2 · 你會先安排哪項檢查？</b><br>
-          <span class="v-think">&lt;think&gt;</span> 胸痛 + 冒冷汗 → 先排除致命病因，ACS 風險最高，<br>故先做 12 導程 ECG 與心肌酵素… <span class="v-think">&lt;/think&gt;</span><br>
-          <span style="color:#fff">標準答案：</span>12-lead ECG + Troponin
-        </div>
+      <div class="visual" style="padding:14px;min-height:0;">
+        <div class="v-bar"><i></i><i></i><i></i><span class="v-label">OSCETEACHER.DIAGMINDTW.COM</span></div>
+        <a href="https://osceteacher.diagmindtw.com/?demo=1" target="_blank" rel="noopener">
+          <img src="img/product-lesson.png" alt="Diagmind 教案生成平台實際畫面：AI 生成的急性胸痛 CBL 教案" style="width:100%;border-radius:10px;border:1px solid var(--line);display:block;" loading="lazy" />
+        </a>
       </div>
     </div>
 
-    <!-- Panel 1: 虛擬醫學影像庫 -->
-    <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0" hidden>
-      <div class="p-text">
-        <span class="p-status soon"><span class="d" aria-hidden="true"></span> 開發中 · 虛擬影像 CXR</span>
-        <h3>虛擬醫學影像庫</h3>
-        <div class="p-for">給影像案例不足的醫院 · 內部教學</div>
-        <p class="p-desc">AI 生成的<strong style="color:#fff">虛擬醫學影像</strong>（目前以胸部 X 光 CXR 為主，影像類型持續擴充）。讓真實案例不足的醫院，也能補足內部教學所需的影像素材，做臨床判讀訓練。</p>
-        <ul class="feat">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> AI 生成的虛擬醫學影像（非真實病人）</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 現以胸部 X 光（CXR）為主</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 影像類型持續擴充</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 補足案例不足，供院內教學判讀</li>
-        </ul>
-        <div class="p-cta">
-          <a class="btn btn-ghost" href="#contact">了解更多</a>
-        </div>
-      </div>
-      <div class="visual" aria-hidden="true">
-        <div class="v-bar"><i></i><i></i><i></i><span class="v-label">VIRTUAL CXR LIBRARY</span></div>
-        <div class="v-imgs" style="grid-template-columns:1fr 1fr;">
-          <div class="tile"><img src="img/cxr-1.png" alt="虛擬胸部 X 光 CXR 範例 1" onerror="this.style.display='none'" /><span>虛擬 CXR · 範例 1</span></div>
-          <div class="tile"><img src="img/cxr-2.png" alt="虛擬胸部 X 光 CXR 範例 2" onerror="this.style.display='none'" /><span>虛擬 CXR · 範例 2</span></div>
-        </div>
-        <div class="v-row"><span class="k">影像</span> AI 生成虛擬 CXR · 非真實病人</div>
-        <div class="v-row"><span class="k">擴充</span> 更多影像類型開發中</div>
-      </div>
+    <div class="shots reveal">
+      <a href="https://osceteacher.diagmindtw.com/?demo=1" target="_blank" rel="noopener">
+        <img src="img/product-create.png" alt="教案生成表單：選擇 CBL/PBL/OSCE 模式與主題、科別、難度" loading="lazy" />
+        <span data-en="Create a lesson — pick mode, topic, audience, difficulty">建立教案——選模式、主題、對象、難度</span>
+      </a>
+      <a href="https://osceteacher.diagmindtw.com/?demo=1" target="_blank" rel="noopener">
+        <img src="img/product-library.png" alt="教案庫儀表板：產出趨勢、難度分布與近期教案" loading="lazy" />
+        <span data-en="Lesson library — output trends and recent lessons">教案庫——產出趨勢與近期教案</span>
+      </a>
     </div>
 
-    <!-- Panel 2: 臨床推理模型 -->
-    <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
-      <div class="p-text">
-        <span class="p-status live"><span class="d" aria-hidden="true"></span> 已上線 · 醫學中心洽談中</span>
-        <h3>臨床推理模型</h3>
-        <div class="p-for">驅動全平台的「腦」</div>
-        <p class="p-desc">把資深臨床醫師的推理過程，變成<strong style="color:#fff">可生成、可複製</strong>的能力——從症狀出發，逐步帶到鑑別診斷、檢查與處置（QRH 引導式）。所有產品共用這一套推理核心。</p>
-        <ul class="feat">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> QRH 五步驟引導式推理</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 30+ 醫師把關，降低幻覺</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 自動鑑別診斷 + 標準答案</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 中英雙語 · 融入本土</li>
-        </ul>
-        <div class="p-cta">
-          <a class="btn btn-ghost" href="#tech">看技術架構</a>
-        </div>
-      </div>
-      <div class="visual" aria-hidden="true">
-        <div class="v-bar"><i></i><i></i><i></i><span class="v-label">REASONING MODEL · QRH</span></div>
-        <div class="v-row"><span class="k">主訴</span> 65 歲男性 · 胸痛 30 分鐘</div>
-        <div class="v-gen">
-          <span class="v-think">step 1</span> 先排除致命病因：ACS / 肺栓塞 / 主動脈剝離<br>
-          <span class="v-think">step 2</span> 12 導程 ECG + Troponin → 指向 ACS<br>
-          <span class="v-think">step 3</span> 抗血小板 + 緊急心導管轉介<br>
-          <span style="color:#fff">推理結論：</span>STEMI，啟動心導管流程
-        </div>
-      </div>
-    </div>
-
-    <!-- Panel 3: 整合教學平台 -->
-    <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
-      <div class="p-text">
-        <span class="p-status plan"><span class="d" aria-hidden="true"></span> 規劃中 · Platform</span>
-        <h3>整合教學平台</h3>
-        <div class="p-for">給醫學院 · 教學醫院 · 健康台灣深耕計畫</div>
-        <p class="p-desc">把教案、課程、評量、影像與學習軌跡串成一條龍：老師生成的內容直接<strong style="color:#fff">排進課程、轉成評量</strong>，學生的個人化複習與學習數據回饋給機構。</p>
-        <ul class="feat">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 教案 → 課程 → 評量 一條龍</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 個人化複習 · 盲點追蹤</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 學生學習軌跡分析</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 機構級教學儀表板</li>
-        </ul>
-        <div class="p-cta">
-          <a class="btn btn-ghost" href="#contact">一起共創</a>
-        </div>
-      </div>
-      <div class="visual" aria-hidden="true">
-        <div class="v-bar"><i></i><i></i><i></i><span class="v-label">INSTITUTION DASHBOARD</span></div>
-        <div class="v-dash">
-          <div class="v-card"><div class="big">128</div><div class="sm">本月生成教案</div>
-            <div class="v-spark"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:88%"></i><i style="height:100%"></i></div></div>
-          <div class="v-card"><div class="big">94<span style="font-size:14px;color:var(--muted)">%</span></div><div class="sm">學生完課率</div>
-            <div class="v-spark"><i style="height:60%"></i><i style="height:72%"></i><i style="height:65%"></i><i style="height:80%"></i><i style="height:78%"></i><i style="height:90%"></i><i style="height:94%"></i></div></div>
-        </div>
-        <div class="v-row" style="margin-top:10px;"><span class="k">課程</span> 內科臨床推理 · 第 3 週</div>
-        <div class="v-row"><span class="k">評量</span> 自動由教案轉生 · 24 題</div>
-      </div>
-    </div>
-
-    <!-- Panel 4: DutyAce 值班助手 -->
-    <div class="panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" tabindex="0" hidden>
-      <div class="p-text">
-        <span class="p-status soon"><span class="d" aria-hidden="true"></span> 開發中 · B2B</span>
-        <h3>DutyAce 值班助手</h3>
-        <div class="p-for">給值班醫師 · 住院醫師 · 教學醫院</div>
-        <p class="p-desc">給值班醫師的 <strong style="color:#fff">AI 電話分流助手</strong>。一晚 50 通電話、手寫紀錄容易漏掉高風險病人——DutyAce 把每通電話轉成卡片，用 <strong style="color:#fff">TTD（Time-To-Deterioration）</strong>演算法排出緊急度，把最危險的病人釘在最上面，直接告訴你「現在該去看哪一床」。</p>
-        <ul class="feat">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 每通值班電話 → 結構化卡片</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> TTD 演算法排緊急度</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 高風險病人自動置頂</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> 直接指引「現在去 X 床」</li>
-        </ul>
-        <div class="p-cta">
-          <a class="btn btn-ghost" href="#contact">了解更多</a>
-        </div>
-      </div>
-      <div class="visual" aria-hidden="true">
-        <div class="v-bar"><i></i><i></i><i></i><span class="v-label">DUTY BOARD · TTD</span></div>
-        <div class="v-gen" style="margin-top:0;border-left-color:#e0a861;">
-          <b>釘選 · 12B 床 · 最危險</b><br>
-          血氧下降 + 心跳上升　<span class="v-think">TTD ≈ 25 分鐘</span><br>
-          <span style="color:#fff">建議：</span>現在就去 12B 床
-        </div>
-        <div class="v-row"><span class="k">08 床</span> 發燒 38.9°C <span class="k" style="margin-left:auto">TTD</span> 2.5 hr</div>
-        <div class="v-row"><span class="k">15 床</span> 血壓偏低 <span class="k" style="margin-left:auto">TTD</span> 1.2 hr</div>
-        <div class="v-row"><span class="k">21 床</span> 失眠 · 低風險 <span class="k" style="margin-left:auto">TTD</span> —</div>
-      </div>
-    </div>
-
-    <!-- 學生複習平台 spotlight → 連到 school.diagmindtw.com（上線中的學生複習平台） -->
+    <!-- Diagmind B2C 入口（diagmindtw.com） -->
     <div class="spotlight reveal">
       <div class="s-head">
         <div class="s-txt">
-          <span class="s-eyebrow">For students · B2C · 上線中</span>
-          <h4>學生複習平台</h4>
-          <p>為醫學生打造的智慧複習系統——精選高頻、易錯重點，搭配間隔複習與盲點追蹤，讓複習更有效率。學生現在就能開始用。</p>
+          <span class="s-eyebrow" data-en="B2C · Live">B2C · 已上線</span>
+          <h4>diagmindtw.com</h4>
+          <p data-en="Live and running — currently open to licensed healthcare professionals only; identity verification required.">現已上線運行——目前僅開放醫事人員使用，需通過身份驗證。</p>
         </div>
         <div class="s-cta">
-          <a class="btn btn-primary" href="https://school.diagmindtw.com/" target="_blank" rel="noopener">使用 Diagmind
+          <a class="btn btn-primary" href="https://diagmindtw.com/" target="_blank" rel="noopener"><span data-en="Visit diagmindtw.com">前往 diagmindtw.com</span>
             <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-      </div>
-      <div class="s-pains">
-        <span>一本接一本的講義，重點難抓</span>
-        <span>念過的內容又忘，重複浪費時間</span>
-        <span>忙臨床，沒空整理系統性筆記</span>
-        <span>模考低分，信心受挫</span>
-      </div>
-      <div class="s-feats">
-        <div class="s-feat"><h5>精選重點</h5><p>歷年高頻、易錯重點，系統整理。</p></div>
-        <div class="s-feat"><h5>記憶優化</h5><p>間隔複習 ＋ 圖像化筆記，記得更牢。</p></div>
-        <div class="s-feat"><h5>一鍵複習</h5><p>快速切換科目主題，針對弱點強化。</p></div>
-        <div class="s-feat"><h5>進度追蹤</h5><p>看懂進度與盲點，調整複習節奏。</p></div>
-      </div>
-      <div class="s-flow">
-        <span>① 選科目與單元</span>
-        <span>② 掃描常考重點與盲點</span>
-        <span>③ 互動複習卡 ＋ 測驗</span>
-        <span>④ 學習曲線 ＋ 補強建議</span>
       </div>
     </div>
   </div>
@@ -647,45 +532,45 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">How it works</span>
-      <h2>有依據地生成，<br>而不是<span class="g">憑空想像</span>。</h2>
-      <p>每一份教案，都先從台灣本土醫學知識中找出「事實依據」，再交給生成式 AI 寫成引導式推理——讓內容有憑有據。</p>
+      <h2 data-en="Grounded generation,<br>not <span class='g'>guesswork</span>.">有依據地生成，<br>而不是<span class="g">憑空想像</span>。</h2>
+      <p data-en="Every lesson first pulls factual grounding from Taiwan's local medical knowledge, then hands it to generative AI to write as guided reasoning — so the content is backed by evidence.">每一份教案，都先從台灣本土醫學知識中找出「事實依據」，再交給生成式 AI 寫成引導式推理——讓內容有憑有據。</p>
     </div>
 
     <div class="pipe reveal">
       <div class="pstep">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20h9M3 20h2M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
-        <div class="pn">01</div><h4>老師輸入</h4><p>主題、科別、對象年級、難度。</p>
+        <div class="pn">01</div><h4 data-en="Faculty input">老師輸入</h4><p data-en="Topic, specialty, audience level, difficulty.">主題、科別、對象年級、難度。</p>
       </div>
       <div class="pstep">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-        <div class="pn">02</div><h4>醫學知識檢索</h4><p>先找出與主題相關的醫學依據。</p>
+        <div class="pn">02</div><h4 data-en="Medical knowledge retrieval">醫學知識檢索</h4><p data-en="First find the medical evidence relevant to the topic.">先找出與主題相關的醫學依據。</p>
       </div>
       <div class="pstep">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM2 10h2M2 14h2M20 10h2M20 14h2M10 2v2M14 2v2M10 20v2M14 20v2"/></svg></div>
-        <div class="pn">03</div><h4>AI 引導式推理</h4><p>依事實依據寫成 QRH 逐步推理教案。</p>
+        <div class="pn">03</div><h4 data-en="AI guided reasoning">AI 引導式推理</h4><p data-en="Writes a step-by-step QRH lesson from the evidence.">依事實依據寫成 QRH 逐步推理教案。</p>
       </div>
       <div class="pstep">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div>
-        <div class="pn">04</div><h4>教案輸出</h4><p>存入教案庫，可匯出、可上 LMS。</p>
+        <div class="pn">04</div><h4 data-en="Lesson output">教案輸出</h4><p data-en="Saved to the library; export it or push it to an LMS.">存入教案庫，可匯出、可上 LMS。</p>
       </div>
     </div>
 
     <div class="pillars">
       <div class="pillar reveal d1">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
-        <h4>30+ 醫師把關</h4><p>內容與資料來源皆經 30+ 位醫師逐一把關，不是模型憑空生成，大幅降低幻覺。</p>
+        <h4 data-en="30+ physicians review">30+ 醫師把關</h4><p data-en="Content and sources are checked one by one by 30+ physicians — not model guesswork — sharply reducing hallucinations.">內容與資料來源皆經 30+ 位醫師逐一把關，不是模型憑空生成，大幅降低幻覺。</p>
       </div>
       <div class="pillar reveal d2">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 2.4 1.2 4 2.5 5.2C9 15.5 9 17 9 18h6c0-1 0-2.5 1.5-3.8C17.8 13 19 11.4 19 9a7 7 0 0 0-7-7ZM9 21h6"/></svg></div>
-        <h4>QRH 引導式推理</h4><p>一步步帶學生推理，而不是直接給答案——像航空檢查手冊。</p>
+        <h4 data-en="QRH guided reasoning">QRH 引導式推理</h4><p data-en="Walks students through the reasoning step by step instead of just handing over answers — like an aviation checklist.">一步步帶學生推理，而不是直接給答案——像航空檢查手冊。</p>
       </div>
       <div class="pillar reveal d3">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
-        <h4>雙語 · 台灣本土</h4><p>中英雙語皆可，並融入台灣本土用語與臨床標準，可擴充在地臨床指引語料。</p>
+        <h4 data-en="Bilingual · localized">雙語 · 台灣本土</h4><p data-en="Works in both Chinese and English, with Taiwan's local terminology and clinical standards, and room to add local guideline corpora.">中英雙語皆可，並融入台灣本土用語與臨床標準，可擴充在地臨床指引語料。</p>
       </div>
       <div class="pillar reveal d4">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div>
-        <h4>一鍵成課</h4><p>教案可匯出 Word/PDF、上 LMS、進教案庫，直接接上教學流程。</p>
+        <h4 data-en="One click to a course">一鍵成課</h4><p data-en="Export lessons to Word/PDF, push to an LMS, or save to the library — straight into your teaching workflow.">教案可匯出 Word/PDF、上 LMS、進教案庫，直接接上教學流程。</p>
       </div>
     </div>
   </div>
@@ -698,8 +583,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Team</span>
-      <h2>臨床 × AI 的<span class="g">創始團隊</span>。</h2>
-      <p>Diagmind 由臨床醫師創辦、與 AI 研究者共同打造——讓每一個產品決策，同時站得住臨床與技術。</p>
+      <h2 data-en="A <span class='g'>founding team</span> of clinicians × AI.">臨床 × AI 的<span class="g">創始團隊</span>。</h2>
     </div>
     <div class="team-grid">
       <div class="member reveal d1">
@@ -707,73 +591,86 @@
           <div class="avatar"><img src="img/team-ceo.jpg" alt="高瑞璋 — 創辦人 · CEO" loading="lazy" /></div>
           <div>
             <h4>高瑞璋 Jui-Chang Kao</h4>
-            <div class="m-role">創辦人 · CEO</div>
+            <div class="m-role" data-en="Founder · CEO">創辦人 · CEO</div>
           </div>
         </div>
         <ul>
-          <li>長庚大學 醫學系（MD）</li>
+          <li data-en="Chang Gung University, School of Medicine (MD)">長庚大學 醫學系（MD）</li>
         </ul>
+        <div class="m-links">
+          <a class="plink" href="https://orcid.org/0009-0009-9760-8218" target="_blank" rel="noopener">ORCID ↗</a>
+        </div>
       </div>
       <div class="member reveal d2">
         <div class="m-top">
           <div class="avatar"><img src="img/team-cto.jpg" alt="許躍薾 — 技術長 · CTO" loading="lazy" /></div>
           <div>
             <h4>許躍薾 Yue-Er Hsu</h4>
-            <div class="m-role">技術長 · CTO</div>
+            <div class="m-role" data-en="CTO">技術長 · CTO</div>
           </div>
         </div>
         <ul>
-          <li>國立臺灣大學 資訊工程學系</li>
-          <li>國立臺灣大學 人工智慧研究所（碩士）</li>
+          <li data-en="National Taiwan University, Computer Science &amp; Information Engineering">國立臺灣大學 資訊工程學系</li>
+          <li data-en="National Taiwan University, Graduate Institute of AI (M.S.)">國立臺灣大學 人工智慧研究所（碩士）</li>
         </ul>
+        <div class="m-links">
+          <a class="plink" href="https://orcid.org/0009-0009-1178-158X" target="_blank" rel="noopener">ORCID ↗</a>
+          <a class="plink" href="https://www.linkedin.com/in/%E8%BA%8D%E8%96%BE-%E8%A8%B1-419482227/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
       </div>
       <div class="member reveal d3">
         <div class="m-top">
           <div class="avatar"><img src="img/team-coo.jpg" alt="李佳儒 — 營運長 · COO" loading="lazy" /></div>
           <div>
             <h4>李佳儒</h4>
-            <div class="m-role">營運長 · COO</div>
+            <div class="m-role" data-en="COO">營運長 · COO</div>
           </div>
         </div>
         <ul>
-          <li>長庚大學 醫學系（MD）</li>
+          <li data-en="Chang Gung University, School of Medicine (MD)">長庚大學 醫學系（MD）</li>
         </ul>
+        <div class="m-links">
+          <a class="plink" href="https://www.linkedin.com/in/%E4%BD%B3%E5%84%92-%E6%9D%8E-519430418/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
       </div>
       <div class="member reveal d4">
         <div class="m-top">
           <div class="avatar"><img src="img/team-cio.jpg" alt="尤銓譽 — 資訊長 · CIO" loading="lazy" /></div>
           <div>
             <h4>尤銓譽</h4>
-            <div class="m-role">資訊長 · CIO</div>
+            <div class="m-role" data-en="CIO">資訊長 · CIO</div>
           </div>
         </div>
         <ul>
-          <li>國立陽明交通大學 醫學系（MD）</li>
-          <li>國立陽明交通大學 腦造影實驗室</li>
+          <li data-en="National Yang Ming Chiao Tung University, School of Medicine (MD)">國立陽明交通大學 醫學系（MD）</li>
+          <li data-en="NYCU, Brain Imaging Lab">國立陽明交通大學 腦造影實驗室</li>
         </ul>
+        <div class="m-links">
+          <a class="plink" href="https://www.linkedin.com/in/%E9%8A%93%E8%AD%BD-%E5%B0%A4-b44035173/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
       </div>
       <div class="member reveal d1">
         <div class="m-top">
           <div class="avatar"><img src="img/team-legal.jpg" alt="鄭宇宸 — 法律顧問" loading="lazy" /></div>
           <div>
             <h4>鄭宇宸</h4>
-            <div class="m-role">法律顧問 · Legal Advisor</div>
+            <div class="m-role" data-en="Legal Advisor">法律顧問 · Legal Advisor</div>
           </div>
         </div>
         <ul>
-          <li>國立臺灣大學 法律學系</li>
+          <li data-en="National Taiwan University, College of Law">國立臺灣大學 法律學系</li>
         </ul>
       </div>
       <div class="member reveal d2">
         <div class="m-top">
           <div class="avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <div>
-            <h4>30+ 位合作醫師</h4>
-            <div class="m-role">各醫學中心 · 臨床醫師</div>
+            <h4 data-en="30+ collaborating physicians">30+ 位合作醫師</h4>
+            <div class="m-role" data-en="Clinicians across medical centers">各醫學中心 · 臨床醫師</div>
           </div>
         </div>
         <ul>
-          <li>參與內容審核與案例標註，確保內容的臨床真實性與技術落地性</li>
+          <li data-en="They review content and annotate cases, ensuring clinical authenticity and real-world technical fit.">參與內容審核與案例標註，確保內容的臨床真實性與技術落地性</li>
         </ul>
       </div>
     </div>
@@ -786,12 +683,14 @@
 <section id="contact" class="vision">
   <div class="wrap reveal">
     <span class="eyebrow" style="justify-content:center;">Our vision</span>
-    <h2 style="margin-top:18px;">讓每一位老師都有 <span class="g">AI 助教</span>，<br>每一位醫學生都有<br>不會累的<span class="g">臨床推理導師</span>。</h2>
-    <p>歡迎聯絡我們，取得醫療 AI 深度合作機會。</p>
+    <h2 style="margin-top:18px;" data-en="Give every teacher an <span class='g'>AI teaching assistant</span>,<br>and every medical student<br>a tireless <span class='g'>clinical-reasoning mentor</span>.">讓每一位老師都有 <span class="g">AI 助教</span>，<br>每一位醫學生都有<br>不會累的<span class="g">臨床推理導師</span>。</h2>
+    <p data-en="Get in touch to explore deep collaboration in medical AI.">歡迎聯絡我們，取得醫療 AI 深度合作機會。</p>
     <div class="hero-cta" style="justify-content:center;margin-top:38px;">
-      <a class="btn btn-primary" href="mailto:diagmindtw@gmail.com?subject=Diagmind%20Demo%20%E9%A0%90%E7%B4%84%E8%AB%AE%E8%A9%A2">預約 Demo
+      <a class="btn btn-primary" href="https://osceteacher.diagmindtw.com/?demo=1" target="_blank" rel="noopener"><span data-en="Try the lesson platform now">立即試用教案生成平台</span>
         <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/company/diagmind/" target="_blank" rel="noopener">LinkedIn 公司頁
+      <a class="btn btn-ghost" href="mailto:info@diagmindtw.com?subject=Diagmind%20Demo%20%E9%A0%90%E7%B4%84%E8%AB%AE%E8%A9%A2"><span data-en="Email us">聯絡我們</span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/company/diagmind/" target="_blank" rel="noopener"><span data-en="LinkedIn page">LinkedIn 公司頁</span>
         <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
     </div>
   </div>
@@ -802,14 +701,75 @@
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
-    <span class="copyright">© 2026 Diagmind · 醫學教育 AI · Taiwan ·
-      <a href="https://www.linkedin.com/company/diagmind/" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline;">LinkedIn</a></span>
+    <span class="copyright" data-en="© 2026 醫識通股份有限公司 (Diagmind) · Tax ID 62243811 · Kaohsiung, Taiwan · Medical Education AI<br><a href='https://info.technews.tw/company/62243811-%E9%86%AB%E8%AD%98%E9%80%9A%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8' target='_blank' rel='noopener' style='color:var(--muted);text-decoration:underline;'>Business registry</a> · <a href='https://www.linkedin.com/company/diagmind/' target='_blank' rel='noopener' style='color:var(--muted);text-decoration:underline;'>LinkedIn</a> · <a href='privacy.html' style='color:var(--muted);text-decoration:underline;'>Privacy Policy</a> · <a href='mailto:info@diagmindtw.com' style='color:var(--muted);text-decoration:underline;'>info@diagmindtw.com</a>">© 2026 醫識通股份有限公司（Diagmind）· 統一編號 62243811 · 高雄市 · 醫學教育 AI<br>
+      <a href="https://info.technews.tw/company/62243811-%E9%86%AB%E8%AD%98%E9%80%9A%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline;">公司登記</a> ·
+      <a href="https://www.linkedin.com/company/diagmind/" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline;">LinkedIn</a> ·
+      <a href="privacy.html" style="color:var(--muted);text-decoration:underline;">隱私權政策</a> ·
+      <a href="mailto:info@diagmindtw.com" style="color:var(--muted);text-decoration:underline;">info@diagmindtw.com</a></span>
   </div>
 </footer>
 
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- i18n: 繁中(預設) <-> English, auto by browser language + manual toggle ---- */
+  (function(){
+    var META = {
+      zh: {
+        lang: 'zh-TW',
+        title: 'Diagmind — AI Native 醫學教育平台',
+        desc: 'Diagmind 醫學教育 AI——虛擬病人教案生成與 QRH 引導式臨床推理，建立在台灣本土醫學知識之上；教案生成平台已上線。'
+      },
+      en: {
+        lang: 'en',
+        title: 'Diagmind — AI-Native Medical Education Platform',
+        desc: 'Diagmind is an AI platform for medical education — virtual-patient lesson generation with QRH-guided clinical reasoning, built on Taiwan’s local medical knowledge. The lesson platform is live.'
+      }
+    };
+    var els = document.querySelectorAll('[data-en]');
+    var zh = [];
+    for(var i=0;i<els.length;i++){ zh.push(els[i].innerHTML); }
+    var btn = document.getElementById('langToggle');
+    var metaDesc = document.querySelector('meta[name="description"]');
+    var ogTitle  = document.querySelector('meta[property="og:title"]');
+    var ogDesc   = document.querySelector('meta[property="og:description"]');
+
+    function apply(lang){
+      var en = (lang === 'en');
+      for(var i=0;i<els.length;i++){
+        els[i].innerHTML = en ? els[i].getAttribute('data-en') : zh[i];
+      }
+      var m = META[lang] || META.zh;
+      document.documentElement.setAttribute('lang', m.lang);
+      document.title = m.title;
+      if(metaDesc) metaDesc.setAttribute('content', m.desc);
+      if(ogTitle)  ogTitle.setAttribute('content', m.title);
+      if(ogDesc)   ogDesc.setAttribute('content', m.desc);
+      if(btn){
+        btn.textContent = en ? '中' : 'EN';
+        btn.setAttribute('aria-label', en ? '切換為中文 / Switch to Chinese' : 'Switch to English / 切換為英文');
+      }
+      try{ localStorage.setItem('dm-lang', lang); }catch(e){}
+    }
+
+    function detect(){
+      var q = (location.search.match(/[?&]lang=(en|zh)/i) || [])[1];
+      if(q) return q.toLowerCase();
+      try{ var s = localStorage.getItem('dm-lang'); if(s === 'en' || s === 'zh') return s; }catch(e){}
+      var n = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase();
+      return n.indexOf('zh') === 0 ? 'zh' : 'en';   /* Chinese browsers -> 繁中; everyone else -> English */
+    }
+
+    var cur = detect();
+    apply(cur);
+    if(btn){
+      btn.addEventListener('click', function(){
+        cur = (cur === 'en') ? 'zh' : 'en';
+        apply(cur);
+      });
+    }
+  })();
 
   /* nav scrolled state */
   var nav = document.getElementById('nav');
