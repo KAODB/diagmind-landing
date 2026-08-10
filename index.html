@@ -131,6 +131,21 @@
   .sec-head h2 .g{color:var(--gold);}
   .sec-head p{color:var(--muted);font-size:17px;margin:18px 0 0;}
   .divider{height:1px;background:var(--line);max-width:var(--maxw);margin:0 auto;}
+  /* 獲獎／計畫跑馬燈：純 CSS，內容重複兩輪、位移一輪長度達成無縫循環 */
+  .ticker{position:relative;overflow:hidden;padding:26px 0;
+          border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:110px;z-index:2;pointer-events:none;}
+  .ticker::before{left:0;background:linear-gradient(90deg,var(--bg),transparent);}
+  .ticker::after{right:0;background:linear-gradient(270deg,var(--bg),transparent);}
+  .ticker-track{display:flex;align-items:center;gap:58px;width:max-content;
+                animation:ticker-scroll 28s linear infinite;}
+  .ticker:hover .ticker-track{animation-play-state:paused;}
+  @keyframes ticker-scroll{to{transform:translateX(calc(-50% - 29px));}}
+  .t-mark{height:50px;display:block;background:#fff;padding:7px 11px;border-radius:4px;box-sizing:content-box;}
+  .t-txt{font-family:"Space Grotesk","Noto Sans TC",sans-serif;font-size:15px;
+         color:var(--muted);white-space:nowrap;}
+  .t-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.55;flex:0 0 auto;}
+  @media (prefers-reduced-motion:reduce){.ticker-track{animation:none;}}
 
   /* ---- stats ---- */
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
@@ -403,7 +418,32 @@
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- ============ 獲獎／計畫跑馬燈 ============ -->
+<div class="ticker" aria-label="獲獎與計畫">
+  <div class="ticker-track">
+    <img class="t-mark" src="img/nvidia-inception-badge.svg" alt="NVIDIA Inception">
+    <span class="t-dot"></span>
+    <img class="t-mark" src="img/google-cloud-for-startups.png" alt="Google Cloud for Startups">
+    <span class="t-dot"></span>
+    <span class="t-txt" data-en="NSTC FITI · National Top 40">國科會 FITI 全國前 40 強</span>
+    <span class="t-dot"></span>
+    <span class="t-txt" data-en="Sustainable Kaohsiung Youth Startup Challenge · Rising Potential Award">永續高雄青年創業挑戰賽・新銳潛力獎</span>
+    <span class="t-dot"></span>
+    <span class="t-txt" data-en="Taiwan Global Pathfinders Initiative · Youth Representative">青年百億海外圓夢計畫・青年築夢代表</span>
+    <span class="t-dot"></span>
+    <!-- 第二輪：視覺用的重複，對輔助技術隱藏 -->
+    <img class="t-mark" src="img/nvidia-inception-badge.svg" alt="" aria-hidden="true">
+    <span class="t-dot"></span>
+    <img class="t-mark" src="img/google-cloud-for-startups.png" alt="" aria-hidden="true">
+    <span class="t-dot"></span>
+    <span class="t-txt" aria-hidden="true" data-en="NSTC FITI · National Top 40">國科會 FITI 全國前 40 強</span>
+    <span class="t-dot"></span>
+    <span class="t-txt" aria-hidden="true" data-en="Sustainable Kaohsiung Youth Startup Challenge · Rising Potential Award">永續高雄青年創業挑戰賽・新銳潛力獎</span>
+    <span class="t-dot"></span>
+    <span class="t-txt" aria-hidden="true" data-en="Taiwan Global Pathfinders Initiative · Youth Representative">青年百億海外圓夢計畫・青年築夢代表</span>
+    <span class="t-dot"></span>
+  </div>
+</div>
 
 <!-- ============ STATS ============ -->
 <section id="stats" style="padding:64px 0;">
@@ -584,6 +624,16 @@
         <h4 data-en="Taiwan Global Pathfinders Initiative · Youth Representative">青年百億海外圓夢計畫・青年築夢代表</h4>
         <p data-en="Founder Jui-Chang Kao briefed the President as a youth dream-builder representative — proposing to study medical-education AI abroad and bring it home to take root in Taiwan (Office of the President photo record).">創辦人高瑞璋以青年築夢代表身分向總統簡報——提案「赴國外學習醫學教育 AI、返台扎根落地」（總統府影像紀錄）。</p>
         <div class="m-links"><a class="plink" href="https://www.president.gov.tw/img/Image/5142d950-9325-44ff-be8b-a1475ffc2596.jpg" target="_blank" rel="noopener" data-en="Presidential Office photo ↗">總統府影像 ↗</a></div>
+      </div>
+      <div class="pillar reveal d4">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></div>
+        <h4 data-en="Approved for NVIDIA Inception">Approved for NVIDIA Inception</h4>
+        <img src="img/nvidia-inception-badge.svg" alt="NVIDIA Inception Program 徽章" style="width:100%;max-width:250px;display:block;margin-top:18px;" loading="lazy" />
+      </div>
+      <div class="pillar reveal d4">
+        <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 0 0 .5-8.97A6 6 0 0 0 6.3 9.4 4.5 4.5 0 0 0 7 19h10.5Z"/></svg></div>
+        <h4 data-en="Approved for the Google for Startups Cloud Program">Approved for the Google for Startups Cloud Program</h4>
+        <img src="img/google-cloud-for-startups.png" alt="Google Cloud for Startups" style="width:100%;max-width:250px;display:block;margin-top:18px;background:#fff;padding:10px;border-radius:4px;box-sizing:border-box;" loading="lazy" />
       </div>
     </div>
   </div>
